@@ -16,6 +16,8 @@ import { StoreModule } from '@ngrx/store';
 import { CoreModule } from './+core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
+import { LoggerService } from './+shared/services/logger.service';
+import { SignupStateModule } from './signup/signup-state.module';
 
 @NgModule({
   imports: [
@@ -32,12 +34,13 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     SignupModule,
+    SignupStateModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent],
   declarations: [AppComponent],
   exports: [StoreModule, RouterModule],
-  providers: [AngularFirestore]
+  providers: [AngularFirestore, LoggerService]
   // providers: [{ provide: FirestoreSettingsToken, useValue: {} }]
 })
 export class AppModule {}

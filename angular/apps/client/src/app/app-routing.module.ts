@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'sign-up'
+    redirectTo: 'select-place'
   }
 ];
 
