@@ -40,3 +40,4 @@ Thumbs.db
 
 yandexApiKey.ts
 environment.ts
+environments/environment.ts
