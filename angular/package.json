@@ -7,7 +7,7 @@
     "start": "ng serve",
     "start:client": "ng serve --project=client --aot --host 0.0.0.0 --port 4200",
     "start:admin": "ng serve --project=admin --aot --host 0.0.0.0 --port 4201",
-    "build": "ng build",
+    "build": "ng build --prod --project=client",
     "test": "ng test",
     "lint": "./node_modules/.bin/nx lint && ng lint",
     "e2e": "ng e2e",

@@ -24,7 +24,7 @@
   },
   "scripts": {
     "install-all": "bash dev-workflow-scripts/+utils/install-deps.bash --root --dws --shared --angular --firebaseFirestore --firebaseFunctions --firebaseTools",
-    "deploy": "ts-node dev-workflow-scripts/+utils/deploy.ts",
+    "deploy": "bash dev-workflow-scripts/+utils/deploy.bash",
     "format:pre-commit": "pretty-quick --staged",
     "start": "yarn start:client",
     "start:client": "yarn --cwd angular start:client",
@@ -39,9 +39,10 @@
     "build:angular": "yarn --cwd angular build",
     "build:client": "yarn --cwd angular build:client",
     "build:admin": "yarn --cwd angular build:admin",
-    "build:firebase": "yarn --cwd firebase build",
-    "build:firestore": "yarn --cwd firebase build:firestore",
-    "build:functions": "yarn --cwd firebase build:functions",
-    "test": "echo \"lol tests\" && exit 1"
+    "build:firebase": "yarn build:firebase && yarn build:functions",
+    "build:firestore": "yarn --cwd firebase/firestore build",
+    "build:functions": "yarn --cwd firebase/functions build",
+    "test": "echo \"lol tests\" && exit 1",
+    "postinstall": "yarn install --ignore-scripts"
   }
 }
