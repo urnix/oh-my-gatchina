@@ -8,11 +8,14 @@ import { SelectPlaceModule } from './select-place/select-place.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SignupModule } from './signup/signup.module';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreModule
+} from '@angular/fire/firestore';
 import { StoreModule } from '@ngrx/store';
 import { CoreModule } from './+core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { environment } from './environment';
+import { environment } from '../environments/environment';
 
 @NgModule({
   imports: [
@@ -23,18 +26,18 @@ import { environment } from './environment';
     RouterModule.forRoot([], { initialNavigation: 'enabled' }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence({
-      experimentalTabSynchronization: true,
+      experimentalTabSynchronization: true
     }),
     SelectPlaceModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     SignupModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   bootstrap: [AppComponent],
   declarations: [AppComponent],
   exports: [StoreModule, RouterModule],
-  providers: [AngularFirestore],
+  providers: [AngularFirestore]
   // providers: [{ provide: FirestoreSettingsToken, useValue: {} }]
 })
 export class AppModule {}

@@ -39,5 +39,5 @@ testem.log
 Thumbs.db
 
 yandexApiKey.ts
-environment.ts
-environments/environment.ts
+**/*/environments/environment.ts
+**/*/environments/environment.prod.ts
