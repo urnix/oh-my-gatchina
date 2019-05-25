@@ -88,7 +88,7 @@
     "viz": "0.0.1",
     "zone.js": "0.8.29",
     "zone.js": "^0.8.26",
-    "firebase": "^5.9.0"
+    "firebase": "5.10.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.11.2",

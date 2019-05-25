@@ -12,7 +12,7 @@ import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestor
 import { StoreModule } from '@ngrx/store';
 import { CoreModule } from './+core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { environment } from './environment';
+import { environment } from '../environments/environment';
 
 @NgModule({
   imports: [

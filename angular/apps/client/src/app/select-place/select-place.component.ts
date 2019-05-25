@@ -66,7 +66,7 @@ export class SelectPlaceComponent implements OnInit, OnDestroy {
 
   async mapClick(coords) {
     const eventData: any = await this.createEventService.show();
-    if (!eventData.result) {
+    if (!eventData || !eventData.result) {
       return;
     }
     const event = {
