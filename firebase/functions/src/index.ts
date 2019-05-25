@@ -1,5 +1,5 @@
-import * as sourceMapSupport from 'source-map-support';
-sourceMapSupport.install();
+// import * as sourceMapSupport from 'source-map-support';
+// sourceMapSupport.install();
 
 import { Logger } from './+utils/logger';
 
@@ -31,3 +31,4 @@ for (const file of files) {
     exports[functionName] = require(file); // registers or runs the function
   }
 }
+``;

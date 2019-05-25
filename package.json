@@ -24,7 +24,7 @@
   },
   "scripts": {
     "install-all": "bash dev-workflow-scripts/+utils/install-deps.bash --root --dws --shared --angular --firebaseFirestore --firebaseFunctions --firebaseTools",
-    "deploy": "ts-node dev-workflow-scripts/+utils/deploy.ts",
+    "deploy": "bash dev-workflow-scripts/+utils/deploy.bash",
     "format:pre-commit": "pretty-quick --staged",
     "start": "yarn start:client",
     "start:client": "yarn --cwd angular start:client",
