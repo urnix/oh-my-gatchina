@@ -1,0 +1,28 @@
+<button
+  mat-button
+  type="button"
+  [disabled]="pagination.page === 1"
+  (click)="loadPage('prev')"
+  class="pagination-arrow-button"
+  title="Prev"
+>
+  prev
+</button>
+<button
+  mat-button
+  type="button"
+  [disabled]="true"
+  class="pagination-arrow-button"
+>
+  |
+</button>
+<button
+  mat-button
+  type="button"
+  [disabled]="!pagination.hasNextPage"
+  (click)="loadPage('next')"
+  class="pagination-arrow-button"
+  title="Next"
+>
+  next
+</button>

@@ -1,5 +1,6 @@
 export const PAGINATION_PER_PAGE = 20;
 export const FLOAT_ACCURACY = 10000;
+export const DefaultTimezone = 'Moscow';
 export const MONTHS = [
   'January',
   'February',

@@ -1,0 +1,140 @@
+@import ../variables
+@import ../mixins
+
+.mat-button
+  border-radius: $globalBorderRadius
+  box-shadow: none !important
+  background: transparent
+  min-width: 120px !important
+  padding: 0 24px !important
+  height: 42px
+
+  .mat-icon
+    font-size: 18px
+    vertical-align: -4px !important
+
+  .button-wrapper &
+    margin: 8px
+
+  .mat-toolbar &
+    border-radius: 0 !important
+
+  &.mat-primary, &.mat-warn, &.mat-primary[disabled]
+    color: $colorWhite !important
+
+  &.mat-primary
+    background: $colorCoolGreen
+
+  &.mat-gray
+    background: $colorWhiteFifteenth
+    +border($colorGreySecond, !important)
+
+  &.mat-warn
+    background: $colorDanger
+
+  &.mat-transparent
+    background: $colorTransparentSixteenth
+    &:hover
+      background: $colorTransparentSeventeenth
+    &.cdk-focused
+      background: $colorTransparentFifth
+
+  &.mat-primary[disabled]
+    background: $colorHoverGrey !important
+    color: $colorGreyFifth !important
+
+  &.mat-transparent[disabled]
+    color: $colorGreyFourteenth !important
+
+.mat-icon-button
+  min-width: 0 !important
+  border-radius: 50% !important
+  margin: 0 !important
+  padding: 0 !important
+
+  .button-wrapper &
+    margin: 8px !important
+
+button[mat-fab]
+  position: absolute
+  bottom: 10px
+  right: 10px
+
+a.menu-item-button
+  margin: 10px !important
+  padding: 0 !important
+  height: 42px !important
+  color: $colorWhite !important
+  border-radius: $globalBorderRadius !important
+  background: $menuButtonBackground !important
+
+  &:hover
+    background: darken($menuButtonBackground, 10) !important
+
+.button-wrapper
+  margin: -8px
+
+button.mat-button.mat-icon-button
+  font-size: 22px
+  margin: 0 !important
+  background: $colorWhiteFifteenth
+  color: $colorGreyNineteenth !important
+  line-height: 30px
+  border-radius: 0 $globalBorderRadius $globalBorderRadius 0 !important
+  display: block
+  width: 100%
+  height: 100%
+
+button.button--add.mat-button
+  padding: 0 10px 0 5px !important
+  margin: 0 0 20px 0 !important
+  display: inline-block !important
+  background: transparent !important
+  flex: 0 0 180px
+  +no-border(!important)
+  text-transform: uppercase
+  font-size: $fontSizeL
+  font-weight: bold
+  color: $colorCoolGreen !important
+  &.button--first
+    @extend .m-b-0
+    padding-left: 0 !important
+    flex: 0 0 auto
+  &[disabled], &:hover
+    color: $colorWarmGray !important
+    .mat-button-focus-overlay
+      background: transparent !important
+
+  &.cdk-focused
+    background: $colorWhiteSixth !important
+    .mat-button-focus-overlay
+      background: transparent !important
+
+  .mat-icon
+    font-size: 27px !important
+    vertical-align: -8px !important
+    @media (max-width: 400px)
+      font-size: 24px !important
+
+button.popup-message__close.mat-icon-button:hover mat-icon
+  color: $colorRedThird
+
+.mat-btn-group
+  > .mat-btn-group > .mat-button,
+  > .mat-button
+    min-width: auto !important
+
+  > .mat-btn-group > .mat-button,
+  > .mat-button
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
+    margin-right: 0
+
+  > .mat-btn-group > .mat-button-action,
+  .mat-button-action
+    border-radius: 0 $globalBorderRadius $globalBorderRadius 0
+    margin-left: 0
+    border-left: 1px solid $colorTransparentTwelfth
+    width: 42px !important
+    padding: 0 !important
+    flex-grow: 0

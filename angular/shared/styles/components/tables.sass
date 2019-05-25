@@ -1,0 +1,104 @@
+@import ../variables
+@import ../mixins
+
+.table-wrapper
+  overflow-x: auto
+  +border-top($colorCoolGray, !important)
+
+.table
+  border-collapse: collapse
+  font-size: $fontSizeS
+
+  a
+    color: $colorGreySeventh
+
+    &:hover
+      color: $colorBlackFirst
+
+  a.link
+    color: $colorSlateBlue
+    text-decoration: none
+
+    &:hover
+      color: $colorSlateBlue
+
+  .mat-icon-button
+    margin: -13px 0 !important
+    &:not([disabled])
+      margin: -5px 0 !important
+    &:not([disabled]):hover
+      color: $colorBlackFirst
+
+  .mat-checkbox
+    border: none !important
+    height: auto
+    margin: 0 !important
+    padding: 0 !important
+
+    label
+      margin: -13px 0 !important
+
+  .mat-form-field
+    border: 1px solid $colorHoverGrey
+    border-radius: $globalBorderRadius
+    padding: 0 5px !important
+    margin: 0 0 0 0
+    background: $colorWhite
+    min-width: 110px
+
+  &, tr, td
+    +no-border(!important)
+  tr
+    +border-top(#e6e6e6, !important)
+    background-color: $colorWhiteNinth
+    &.table__total
+      +border-top($colorGreySixth, !important)
+      +border-bottom($colorGreySixth, !important)
+      background: $colorLightGray
+      padding-right: 16px
+      font-weight: 500
+  thead, th
+    font-weight: 500
+    tr
+      +no-border(!important)
+      background: inherit
+  td, th
+    +no-border
+    text-align: left
+    padding: 14px 10px
+
+  th.table,
+  td.table
+    &__xs
+      width: 8%
+    &__sm
+      width: 15%
+    &__md
+      width: 20%
+    &__lg
+      width: 25%
+    &__action
+      text-align: center
+    &__money
+      text-align: right
+
+  &--simple
+    width: 100%
+    td
+      .table__icon-image
+        max-height: 30px
+        max-width: 30px
+        margin: 0 0 5px 5px
+    tbody
+      background-color: $colorLightGray
+      color: $colorSlateGrey
+      tr
+        +border-top($colorHoverGrey)
+        &.table__input-line td
+          padding: 10px
+      td.table__select
+        width: 20px
+        input, mat-checkbox
+          min-width: 18px
+          height: 18px
+          opacity: .8

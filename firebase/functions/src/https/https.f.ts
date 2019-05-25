@@ -7,6 +7,7 @@ import { categoriesRouter } from './routers/categoriesRouter';
 
 const app = express();
 
+// @ts-ignore
 app.use((req: express.Request, res: express.Response, next: Function) => {
   const logger = new Logger('https', true);
   logger.debug(`${req.method} ${unescape(req.originalUrl)}`);
@@ -14,11 +15,13 @@ app.use((req: express.Request, res: express.Response, next: Function) => {
 });
 
 const apiRouter = express.Router();
+// @ts-ignore
 apiRouter.use('/hello', (req, res) => res.send('Hello world!'));
 apiRouter.use('/events', eventsRouter);
 apiRouter.use('/categories', categoriesRouter);
 
 app.use('/api', apiRouter);
+// @ts-ignore
 app.use('*', (req, res) => res.status(404).send('Sorry... Nothing here'));
 
 exports = module.exports = functions.https.onRequest(app);

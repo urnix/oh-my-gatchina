@@ -1,0 +1,172 @@
+@import ../variables
+@import ../mixins
+
+.m-t-0
+  margin-top: 0 !important
+
+.m-t-05
+  margin-top: 5px !important
+
+.m-t-1
+  margin-top: 10px !important
+
+.m-t-2
+  margin-top: 20px !important
+
+.m-b-0
+  margin-bottom: 0 !important
+
+.m-b-05
+  margin-bottom: 5px !important
+
+.m-b-1
+  margin-bottom: 10px !important
+
+.m-b-2
+  margin-bottom: 20px !important
+
+.m-l-0
+  margin-left: 0 !important
+
+.m-l-1
+  margin-left: 10px !important
+
+.m-r-0
+  margin-right: 0 !important
+
+.m-r-3
+  margin-right: 30px !important
+
+.p-t-05
+  padding-top: 5px !important
+
+.cursor-pointer
+  cursor: pointer
+
+.text-center
+  text-align: center !important
+
+.text-left
+  text-align: left !important
+
+.text-right
+  text-align: right !important
+
+.text-justify
+  text-align: justify !important
+
+.text-danger
+  color: $colorDanger
+
+.text-muted
+  color: $colorMuted
+
+.flex-justify-space-between
+  justify-content: space-between
+
+.gray
+  color: $colorGreySeventeenth
+
+.font-size-XL
+  font-size: $fontSizeXL
+.font-size-H
+  font-size: $fontSizeH
+
+.clear
+  clear: both
+
+.button
+  +no-border
+  border-radius: 2px
+  background-color: $colorWarmGray
+  display: flex
+  align-items: center
+  justify-content: center
+  &--sm
+    font-size: 18px
+    mat-icon
+      font-size: 18px
+      height: 18px
+      width: 18px
+
+  &--primary
+    background-color: $colorCoolGreen
+    color: $colorWhite
+
+.uppercase
+  text-transform: uppercase
+
+hr
+  margin: -10px 0 20px
+  border: $colorWhiteThirteenth .5px solid
+
+._uppercase
+  text-transform: uppercase
+
+._bolder
+  font-weight: 500
+
+._bold
+  font-weight: 500
+
+._xbold
+  font-weight: 700
+
+._flex-1
+  flex: 1
+
+._flex
+  display: flex
+  align-items: center
+
+._mw
+  &-50
+    max-width: 50%
+  &-20
+    max-width: 20%
+  &-33
+    max-width: 33.33%
+
+._w
+  &-33
+    width: 33.33%
+  &-50
+    width: 50% !important
+  &-100
+    width: 100% !important
+
+._m
+  &l-50
+    margin-left: 50px
+  &t-26
+    margin-top: 26px !important
+  &b-28
+    margin-bottom: 28px !important
+  &b-26
+    margin-bottom: 26px !important
+
+.d-inline-block
+  display: inline-block !important
+
+.text-uppercase
+  text-transform: uppercase !important
+
+.align-top
+  vertical-align: top !important
+
+.d-flex
+  display: flex
+
+.d-none
+  display: none
+
+.d-block
+  display: block
+
+.d-sm-none
+  @media (min-width: 768px)
+    display: none !important
+
+.d-sm-block
+  @media (min-width: 768px)
+    display: block !important

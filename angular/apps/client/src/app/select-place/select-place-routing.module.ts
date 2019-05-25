@@ -4,7 +4,7 @@ import { SelectPlaceComponent } from './select-place.component';
 
 const routes: Routes = [
   {
-    path: 'select-place',
+    path: '.',
     component: SelectPlaceComponent
     // children: [
     //   {

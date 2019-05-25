@@ -1,0 +1,188 @@
+@import ../variables
+
+// hierarchy
+//
+// .cdk-overlay-container
+//   .cdk-global-overlay-wrapper
+//     .cdk-overlay-pane
+//       mat-dialog-container.mat-dialog-container
+//         fr-entity-selector-dialog
+//           .dialog
+//             .search-box.mat-dialog-title
+//             .items
+//               mat-dialog-content
+//               mat-dialog-actions
+//                 .items__counter
+//                 .button-wrapper
+//                   .mat-transparent
+//                   .mat-primary
+
+
+.mat-dialog-title
+  padding: 40px 40px 10px
+  text-align: center
+
+.mat-card
+  z-index: 1
+  border-top: 1px solid #e8e8e8
+  box-shadow: 0 0 1px 0 $colorTransparentSeventeenth, 0 1px 2px 0 $colorTransparentSeventeenth, 0 3px 5px 0 $colorTransparentSeventeenth
+
+// modal / popover / overlay which covers whole screen
+.cdk-global-overlay-wrapper
+  //for entity-selector dropdown and any other thing that need backdrop only to close on outside click
+  .cdk-overlay-transparent-backdrop
+    background: none
+
+  .cdk-overlay-pane
+    position: relative !important
+    border-radius: 5px
+    overflow: hidden
+    width: 90vw
+    max-width: 90vw !important
+    @media (min-width: 410px)
+      width: 80vw
+    @media (min-width: 768px)
+      width: 600px
+    @media (min-width: 1366px)
+      width: 768px
+
+  .mat-form-field
+    margin: 0 0 15px 0 !important
+
+  form
+    .mat-form-field
+      margin: 0 0 20px 0 !important
+      border: 1px solid $colorHoverGrey !important
+
+  .mat-dialog-container
+    padding: 0 !important
+    height: auto
+    overflow: hidden
+
+  .dialog__title
+    padding: 15px 15px 10px 15px !important
+    background: $colorWhiteSixth
+    margin: 0
+
+  .search-box
+    padding: 5px 15px 0 15px !important
+    margin: 0 -5px !important
+    border-bottom: 1px solid $colorWhiteThird
+    border-top: 1px solid $colorWhiteThird
+    background: $colorWhiteSixteenth
+
+  .mat-form-field
+    margin: 0 0 5px 0 !important
+    border: none !important
+    box-shadow: none !important
+
+  //.items
+  //  &__amount-selector
+  //    padding: 10px 15px !important
+  //    height: auto !important
+  //
+  //  .mat-checkbox
+  //    border: none !important
+  //    padding: 0 !important
+  //    height: auto
+  //    margin: 0 !important
+  //    width: auto
+  //
+  //    label
+  //      padding: 0
+  //
+  //  &__counter
+  //    width: 100%
+  //    background: $colorWhiteSixth
+  //    color: $colorGreyTwentieth !important
+  //    margin: 0
+  //    box-sizing: border-box
+  //    padding: 10px 15px !important
+  //    height: auto
+
+  .dialog
+    display: flex
+    flex-direction: column
+
+    &__actions
+      width: 100%
+      background: $colorWhiteSixth
+      border: none
+      padding: 15px
+      box-sizing: border-box
+
+    .button-wrapper
+      display: flex
+      margin: 0
+      width: 100%
+
+    button.mat-button
+      box-sizing: border-box
+      width: 100% !important
+      margin: 0 5px !important
+
+  .mat-dialog-content
+    box-sizing: border-box
+    width: 100%
+    margin: 0 !important
+    padding: 0 20px 20px 20px
+    overflow: hidden
+
+// dropdown / overlay attached to a input
+.fr-entity-selector-dropdown-panel
+  position: relative
+  overflow: hidden
+  box-shadow: 0 11px 15px -7px $colorTransparentNinth, 0 24px 38px 3px $colorTransparentTenth, 0 9px 46px 8px $colorTransparentFifth
+  border-radius: 5px
+
+  .search-box
+    padding: 5px 15px 0 15px !important
+    background: $colorWhiteSixth
+    margin: 0 -5px !important
+    border-bottom: 1px solid $colorGreySecond
+
+
+.fr-autocomplete-dialog-panel--shadow
+  box-shadow: 0 11px 15px -7px $colorTransparentNinth, 0 24px 38px 3px $colorTransparentTenth, 0 9px 46px 8px $colorTransparentFifth
+.fr-entity-selector-dialog-panel,
+.fr-autocomplete-dialog-panel,
+.fr-autocomplete-dialog-panel--shadow,
+.fr-entity-selector-dropdown-panel,
+.fr-autocomplete-dropdown-panel
+  .mat-form-field
+    margin: 0 0 5px 0 !important
+    border: none !important
+    box-shadow: none !important
+  form
+    .mat-form-field
+      margin: 0 0 30px 0 !important
+      border: 1px solid $colorHoverGrey !important
+
+  .dialog__actions
+    width: 100%
+    background: $colorWhiteSixth
+    border: none
+    margin: 0
+    //padding: 15px 0 !important
+    border-top: 1px solid $colorGreySecond
+    box-sizing: border-box
+
+    button.mat-button
+      margin: 0 !important
+    button.mat-button + button.mat-button
+      margin-left: 10px !important
+
+  .mat-dialog-content
+    box-sizing: border-box
+    width: 100%
+    margin: 0
+    padding: 0
+
+  .items
+    &__item
+      border-bottom: 1px solid $colorWhiteFirst
+      color: $colorGreyTwentyFirst
+
+.mat-select-panel
+  border-radius: 5px
+  margin: 1px 5px

@@ -1,0 +1,50 @@
+@import ../variables
+.filters
+  padding-left: 0
+  font-size: $fontSizeM
+  margin-top: 0
+
+  &__item
+    display: inline-block
+    padding: 10px 0
+    margin-right: 30px
+    transition: all .2s
+    border-bottom: solid 3px transparent
+
+    &__link
+      letter-spacing: .3px
+      color: $colorBrownFirst
+      text-decoration: none
+
+      &:hover
+        color: lighten($colorBrownFirst, 20%)
+
+    &__count
+      border-radius: 20px
+      border: solid 1px $colorGreyEighteenth
+      font-size: $fontSizeXS
+      color: $colorLightGray
+      padding: 3px 13px 2px
+      margin-left: 6px
+      background: $colorSlateGrey
+      &--orange
+        background: $colorSlateOrange
+      &--red
+        background: $colorSlateRed
+      &--blue
+        background: $colorAzure
+      &--lightblue
+        background: $colorSeafoamBlue
+      &--purple
+        background: $colorSlateBlue
+
+    &--active
+      border-bottom-color: $colorSlateBlue
+
+      .filter__item__link
+        color: $colorSlateBlue
+
+    &--active:hover
+      border-bottom-color: lighten($colorSlateBlue, 20%)
+      .filter__item__link
+        color: lighten($colorBrownFirst, 20%)

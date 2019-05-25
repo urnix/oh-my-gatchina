@@ -1,0 +1,26 @@
+@import "../variables"
+.months-toggle
+  display: flex
+  width: 394px
+  border: 1px solid $colorTransparentFifth
+  border-radius: 4px
+  margin: 0 31px 0 0
+  @media (max-width: 480px)
+    width: 100%
+  &:last-child
+    margin: 0
+  &__btn
+    font-weight: 500
+    height: 40px
+    line-height: 40px
+    padding: 0
+    width: 33.33%
+    color: $colorSlateGrey
+    text-align: center
+    cursor: pointer
+    transition: .2s ease-in-out
+    &:nth-child(2)
+      border-left: 1px solid $colorTransparentFifth
+      border-right: 1px solid $colorTransparentFifth
+    &:hover
+      background: $colorHoverGrey

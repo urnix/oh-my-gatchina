@@ -6,23 +6,35 @@ import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
 import { SelectPlaceModule } from './select-place/select-place.module';
 import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SignupModule } from './signup/signup.module';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+import { StoreModule } from '@ngrx/store';
+import { CoreModule } from './+core/core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from './environment';
-import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
-  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CoreModule,
     NxModule.forRoot(),
     RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule.enablePersistence({
+      experimentalTabSynchronization: true,
+    }),
     SelectPlaceModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    SignupModule,
+    AppRoutingModule,
   ],
+  bootstrap: [AppComponent],
+  declarations: [AppComponent],
+  exports: [StoreModule, RouterModule],
   providers: [AngularFirestore],
-  bootstrap: [AppComponent]
+  // providers: [{ provide: FirestoreSettingsToken, useValue: {} }]
 })
 export class AppModule {}

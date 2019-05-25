@@ -1,0 +1,52 @@
+@import ../variables
+// labels
+.input-label
+  margin: 3px 0 10px 0
+  font-weight: 600
+.status-label
+  display: block
+  line-height: 20px
+  text-align: center
+  color: $colorWhite
+  font-weight: 400
+  font-size: 12px
+  border-radius: 2px
+  margin-left: 10px
+  padding: 0 6px
+  background-color: $colorGreySixteenth
+  &--active, &--done
+    background-color: $colorGreenThird
+  &--deactivated, &--deleted
+    background-color: $colorRedSecond
+  &--inactive, &--draft
+    background-color: $colorSlateGrey
+  &--processing, &--read
+    background-color: $colorSeafoamBlue
+  &--processed, &--notSent
+    background-color: $colorSlateBlue
+  &--voided
+    background-color: $colorPurpleFirst
+  &--toApprove
+    //not used
+    background-color: $colorDustyOrange
+  &--sent
+    background-color: $colorAzure
+  &--actionNeeded, &--rejected
+    //rejected not used too
+    background-color: $colorFadedRed
+
+//messages
+.status-message
+  margin: -2rem -2rem 1.5rem
+  padding: 1px 2rem
+  background-color: $colorGreyFirst
+  color: $colorGreySixteenth
+  &--rejected
+    background-color: $colorWhiteTenth
+    color: $colorFadedRed
+  &--sent
+    background-color: $colorWhiteEleventh
+    color: $colorAzure
+  &--notSent, &--read
+    background-color: $colorWhiteTwelfth
+    color: $colorSeafoamBlue
