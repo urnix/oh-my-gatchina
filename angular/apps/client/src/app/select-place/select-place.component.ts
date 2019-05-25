@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { DynamicScriptLoaderService } from '../services/script-loader';
 import { CreateEventService } from './create-event-dialog/src/create-event.service';
 
@@ -7,13 +8,16 @@ declare let ymaps: any;
 @Component({
   selector: 'angular-select-place',
   templateUrl: './select-place.component.html',
-  styleUrls: ['./select-place.component.sass'],
+  styleUrls: ['./select-place.component.sass']
 })
 export class SelectPlaceComponent implements OnInit, OnDestroy {
   map;
 
-  constructor(private dynamicScriptLoader: DynamicScriptLoaderService,
-              private createEventService: CreateEventService) {}
+  constructor(
+    private dynamicScriptLoader: DynamicScriptLoaderService,
+    private createEventService: CreateEventService,
+    private db: AngularFirestore
+  ) {}
 
   async ngOnInit() {
     await this.loadScripts();
@@ -34,11 +38,11 @@ export class SelectPlaceComponent implements OnInit, OnDestroy {
       'map',
       {
         center: [55.751574, 37.573856],
-        zoom: 9,
+        zoom: 9
       },
       {
-        searchControlProvider: 'yandex#search',
-      },
+        searchControlProvider: 'yandex#search'
+      }
     );
     this.map.events.add('click', e => {
       const coords = e.get('coords');
@@ -51,17 +55,27 @@ export class SelectPlaceComponent implements OnInit, OnDestroy {
       coords,
       {
         hintContent: 'Событие',
-        balloonContent: 'Метка события',
+        balloonContent: 'Метка события'
       },
       {
-        iconLayout: 'default#image',
-      },
+        iconLayout: 'default#image'
+      }
     );
     this.map.geoObjects.add(placemark);
   }
 
-  mapClick(coords) {
-    this.createEventService.show('title', 'info');
+  async mapClick(coords) {
+    const eventData: any = await this.createEventService.show();
+    if (!eventData.result) {
+      return;
+    }
+    const event = {
+      name: eventData.name,
+      description: eventData.description,
+      coords
+    };
+    const id = this.db.createId();
+    await this.db.doc(`events/${id}`).set(event);
     // if (!this.map.balloon.isOpen()) {
     //   this.map.balloon.open(coords, {
     //     contentHeader: 'Событие!',

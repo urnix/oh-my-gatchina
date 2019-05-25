@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Inject, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  ViewEncapsulation
+} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @Component({
@@ -6,48 +11,30 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
   templateUrl: './create-event.component.html',
   styleUrls: ['./create-event.component.sass'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CreateEventComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<CreateEventComponent>) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<CreateEventComponent>
+  ) {}
+
+  description: string;
+  name: string;
 
   ok() {
-    this.dialogRef.close(true);
+    this.dialogRef.close({
+      result: true,
+      description: this.description,
+      name: this.name
+    });
   }
 
-  onAnswerTextChanged(answer: string): void {}
-
-  isAnswerFilled(): boolean {
-    return true;
+  onDescriptionChanged(text: string): void {
+    this.description = text;
   }
 
-  getType(): string {
-    return this.data.type;
-  }
-}
-
-@Component({
-  selector: 'fr-create-event',
-  templateUrl: './create-event.component.html',
-  styleUrls: ['./create-event.component.sass'],
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-})
-export class ConfirmDialogWithTextComponent extends CreateEventComponent {
-  textAreaValue: string;
-
-  ok() {
-    if (this.data.isAnswerRequired && !this.textAreaValue) {
-      return;
-    }
-    this.dialogRef.close({ result: true, text: this.textAreaValue });
-  }
-
-  onAnswerTextChanged(answer: string): void {
-    this.textAreaValue = answer;
-  }
-
-  isAnswerFilled(): boolean {
-    return !!this.textAreaValue;
+  onNameChanged(text: string): void {
+    this.name = text;
   }
 }

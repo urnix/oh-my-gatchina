@@ -1,31 +1,26 @@
-<h2 mat-dialog-title>{{data.title}}</h2>
-<div class="text" *ngIf="data.info">
-  {{ data.info }}
-</div>
-<div class="warning" *ngIf="data.infoWarn">
-  <mat-icon color="warn">info</mat-icon>
-  {{ data.infoWarn }}
-</div>
-<mat-dialog-content *ngIf="getType() === 'prompt'">
+<h2 mat-dialog-title>Создать событие</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <input
+      matInput
+      (input)="onNameChanged($event.target.value)"
+      placeholder="Название события"
+    />
+  </mat-form-field>
   <mat-form-field class="textarea-wrapper" floatLabel="never">
-    <textarea class="textarea-input" matInput
-              (input)="onAnswerTextChanged($event.target.value)"
-              [placeholder]="data.placeholder || 'Your answer here'"
-              maxlength="150" rows="5"></textarea>
+    <textarea
+      class="textarea-input"
+      matInput
+      (input)="onDescriptionChanged($event.target.value)"
+      placeholder="Описание события"
+      maxlength="150"
+      rows="5"
+    ></textarea>
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button
-          type="button"
-          color="transparent"
-          mat-dialog-close>
-    No
+  <button mat-button type="button" color="transparent" mat-dialog-close>
+    Отмена
   </button>
-  <button mat-button
-          type="button"
-          color="primary"
-          (click)="ok()"
-          [disabled]="data.isAnswerRequired && !isAnswerFilled()">
-    Yes
-  </button>
+  <button mat-button type="button" color="primary" (click)="ok()">ОК</button>
 </mat-dialog-actions>

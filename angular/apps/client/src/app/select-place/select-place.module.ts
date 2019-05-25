@@ -4,10 +4,17 @@ import { SelectPlaceComponent } from './select-place.component';
 import { SelectPlaceRoutingModule } from './select-place-routing.module';
 import { DynamicScriptLoaderService } from '../services/script-loader';
 import { CreateEventService } from './create-event-dialog/src/create-event.service';
+import { MatDialogModule } from '@angular/material';
+import { CreateEventModule } from './create-event-dialog';
 
 @NgModule({
   declarations: [SelectPlaceComponent],
-  imports: [CommonModule, SelectPlaceRoutingModule],
+  imports: [
+    CommonModule,
+    SelectPlaceRoutingModule,
+    MatDialogModule,
+    CreateEventModule
+  ],
   providers: [DynamicScriptLoaderService, CreateEventService]
 })
 export class SelectPlaceModule {}
