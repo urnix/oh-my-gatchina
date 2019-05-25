@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
 import { SelectPlaceModule } from './select-place/select-place.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,7 +13,8 @@ import { SelectPlaceModule } from './select-place/select-place.module';
     BrowserModule,
     NxModule.forRoot(),
     RouterModule.forRoot([], { initialNavigation: 'enabled' }),
-    SelectPlaceModule
+    SelectPlaceModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
