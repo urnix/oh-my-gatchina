@@ -1,17 +1,19 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DynamicScriptLoaderService } from '../services/script-loader';
+import { CreateEventService } from './create-event-dialog/src/create-event.service';
 
 declare let ymaps: any;
 
 @Component({
   selector: 'angular-select-place',
   templateUrl: './select-place.component.html',
-  styleUrls: ['./select-place.component.sass']
+  styleUrls: ['./select-place.component.sass'],
 })
 export class SelectPlaceComponent implements OnInit, OnDestroy {
   map;
 
-  constructor(private dynamicScriptLoader: DynamicScriptLoaderService) {}
+  constructor(private dynamicScriptLoader: DynamicScriptLoaderService,
+              private createEventService: CreateEventService) {}
 
   async ngOnInit() {
     await this.loadScripts();
@@ -32,11 +34,11 @@ export class SelectPlaceComponent implements OnInit, OnDestroy {
       'map',
       {
         center: [55.751574, 37.573856],
-        zoom: 9
+        zoom: 9,
       },
       {
-        searchControlProvider: 'yandex#search'
-      }
+        searchControlProvider: 'yandex#search',
+      },
     );
     this.map.events.add('click', e => {
       const coords = e.get('coords');
@@ -49,25 +51,27 @@ export class SelectPlaceComponent implements OnInit, OnDestroy {
       coords,
       {
         hintContent: 'Событие',
-        balloonContent: 'Метка события'
+        balloonContent: 'Метка события',
       },
       {
-        iconLayout: 'default#image'
-      }
+        iconLayout: 'default#image',
+      },
     );
     this.map.geoObjects.add(placemark);
   }
 
   mapClick(coords) {
-    if (!this.map.balloon.isOpen()) {
-      this.map.balloon.open(coords, {
-        contentHeader: 'Событие!',
-        contentBody: 'contentBody.html',
-        contentFooter: '<sup>Щелкните еще раз для отмены</sup>'
-      });
-    } else {
-      this.map.balloon.close();
-    }
-    this.addPlaceMark(coords);
+    this.createEventService.show('title', 'info');
+    // if (!this.map.balloon.isOpen()) {
+    //   this.map.balloon.open(coords, {
+    //     contentHeader: 'Событие!',
+    //     // contentBody: 'contentBody.html',
+    //     contentFooter: '<sup>Щелкните еще раз для отмены</sup>',
+    //     balloonLayout: createBaloonLayout(ymaps),
+    //   });
+    // } else {
+    //   this.map.balloon.close();
+    // }
+    // this.addPlaceMark(coords);
   }
 }
