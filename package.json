@@ -39,9 +39,10 @@
     "build:angular": "yarn --cwd angular build",
     "build:client": "yarn --cwd angular build:client",
     "build:admin": "yarn --cwd angular build:admin",
-    "build:firebase": "yarn --cwd firebase build",
-    "build:firestore": "yarn --cwd firebase build:firestore",
-    "build:functions": "yarn --cwd firebase build:functions",
-    "test": "echo \"lol tests\" && exit 1"
+    "build:firebase": "yarn build:firebase && yarn build:functions",
+    "build:firestore": "yarn --cwd firebase/firestore build",
+    "build:functions": "yarn --cwd firebase/functions build",
+    "test": "echo \"lol tests\" && exit 1",
+    "postinstall": "yarn install --ignore-scripts"
   }
 }
