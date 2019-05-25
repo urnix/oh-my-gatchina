@@ -1,0 +1,20 @@
+{
+  "name": "dev-workflow-scripts",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc",
+    "lint": "tslint --project tsconfig.json"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "11.11.3",
+    "ts-node": "8.0.3",
+    "tslint": "5.14.0",
+    "typescript": "3.2.4"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "lib": ["es7"],
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "target": "es6",
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": [
+        "../../shared/*"
+      ]
+    }
+  },
+  "compileOnSave": false,
+  "include": [
+    "src"
+  ]
+}

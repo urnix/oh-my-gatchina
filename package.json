@@ -1,0 +1,47 @@
+{
+  "name": "agency-billing",
+  "version": "0.2.0",
+  "repository": "git@gitlab.com:anton-shubin-and-partners/agency-billing.git",
+  "author": "Anton Shubin <2spy4x@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "firebase-tools": "^6.10.0",
+    "husky": "^1.1.3",
+    "prettier": "^1.14.2",
+    "pretty-quick": "^1.6.0",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.6"
+  },
+  "engines": {
+    "node": ">=8.9.0 <=10.13.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "bash dev-workflow-scripts/pre-commit.bash"
+    }
+  },
+  "scripts": {
+    "install-all": "bash dev-workflow-scripts/+utils/install-deps.bash --root --dws --shared --angular --firebaseFirestore --firebaseFunctions --firebaseTools",
+    "deploy": "ts-node dev-workflow-scripts/+utils/deploy.ts",
+    "format:pre-commit": "pretty-quick --staged",
+    "start": "yarn start:client",
+    "start:client": "yarn --cwd angular start:client",
+    "start:admin": "yarn --cwd angular start:admin",
+    "format": "prettier **/*.ts --write",
+    "format:staged": "pretty-quick --staged",
+    "lint": "yarn lint:angular && yarn lint:functions && yarn lint:shared",
+    "lint:angular": "yarn --cwd angular lint",
+    "lint:functions": "yarn --cwd \"firebase/functions\" lint",
+    "lint:shared": "tslint --project shared/tsconfig.json 'shared/**/*.ts'",
+    "build": "yarn build:angular && yarn build:firebase",
+    "build:angular": "yarn --cwd angular build",
+    "build:client": "yarn --cwd angular build:client",
+    "build:admin": "yarn --cwd angular build:admin",
+    "build:firebase": "yarn --cwd firebase build",
+    "build:firestore": "yarn --cwd firebase build:firestore",
+    "build:functions": "yarn --cwd firebase build:functions",
+    "test": "echo \"lol tests\" && exit 1"
+  }
+}

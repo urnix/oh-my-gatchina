@@ -1,0 +1,24 @@
+{
+  "npmScope": "angular",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "admin": {
+      "tags": ["seed"]
+    },
+    "admin-e2e": {
+      "tags": []
+    },
+    "client": {
+      "tags": ["seed"]
+    },
+    "client-e2e": {
+      "tags": []
+    }
+  }
+}
