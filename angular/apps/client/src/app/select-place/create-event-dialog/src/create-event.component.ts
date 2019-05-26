@@ -1,10 +1,14 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  Inject,
-  ViewEncapsulation
+  Inject, OnInit,
+  ViewEncapsulation,
 } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { getCategories } from '../../../categories/categories.selectors';
+import { select, Store } from '@ngrx/store';
+import { AppState } from '../../../+core/store/app.state';
+import { CategoriesLoadCollectionAction } from '../../../categories/+actions/loadCollection.action';
 
 @Component({
   selector: 'angular-create-event',
@@ -13,22 +17,32 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CreateEventComponent {
+export class CreateEventComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<CreateEventComponent>
+    public dialogRef: MatDialogRef<CreateEventComponent>,
+    private store: Store<AppState>
   ) {}
 
   description: string;
   name: string;
+  categoryId: string;
+
+  categories$ = this.store.pipe(select(getCategories));
 
   minDate = new Date();
 
+  ngOnInit(): void {
+    this.store.dispatch(new CategoriesLoadCollectionAction());
+  }
+
   ok() {
+    console.log(this.categoryId)
     this.dialogRef.close({
       result: true,
       description: this.description,
-      name: this.name
+      name: this.name,
+      categoryId: this.categoryId,
     });
   }
 
@@ -38,5 +52,10 @@ export class CreateEventComponent {
 
   onNameChanged(text: string): void {
     this.name = text;
+  }
+
+  onCategoryChanged(categoryId){
+    console.log(categoryId);
+    this.categoryId = categoryId;
   }
 }

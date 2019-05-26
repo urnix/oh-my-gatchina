@@ -17,6 +17,14 @@
       rows="5"
     ></textarea>
   </mat-form-field>
+  <mat-form-field>
+    <mat-label>Категория</mat-label>
+    <mat-select matNativeControl  [(value)]="categoryId">
+      <ng-container *ngIf="categories$ | async as categories">
+        <mat-option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</mat-option>
+      </ng-container>
+    </mat-select>
+  </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button type="button" color="transparent" mat-dialog-close>

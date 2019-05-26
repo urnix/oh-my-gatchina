@@ -4,7 +4,7 @@ import {
   MatButtonModule,
   MatDialogModule,
   MatIconModule,
-  MatInputModule
+  MatInputModule, MatSelectModule,
 } from '@angular/material';
 
 import { CreateEventComponent } from './create-event.component';
@@ -19,6 +19,7 @@ import { DatePickerModule } from '../../../../../../../shared/modules/datepicker
     MatInputModule,
     MatIconModule,
     DatePickerModule,
+    MatSelectModule,
   ],
   declarations: [CreateEventComponent],
   entryComponents: [CreateEventComponent]
