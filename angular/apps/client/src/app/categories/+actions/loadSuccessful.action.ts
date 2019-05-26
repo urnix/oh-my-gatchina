@@ -20,6 +20,7 @@ export class CategoriesLoadCollectionActionSuccessful
   constructor(public payload: Category[]) {}
 
   handler(state: CategoriesState, action: this): CategoriesState {
+    console.log(` action.payload: ${JSON.stringify(action.payload)}`);
     return setStateProperties(state, {
       isLoading: false,
       categories: action.payload

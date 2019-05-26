@@ -38,6 +38,7 @@ import { CategoriesModule } from './categories/categories.module';
     SignupModule,
     FeedModule,
     SelectPlaceModule,
+    CategoriesModule,
     SignupStateModule,
     AppRoutingModule
   ],

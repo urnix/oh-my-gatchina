@@ -26,6 +26,7 @@ export class CategoriesLoadCollectionAction
   constructor() {}
 
   handler(state: CategoriesState, action: this): CategoriesState {
+    console.log(`hand`);
     return setStateProperties(state, {
       isLoading: true,
       loadError: null
@@ -38,14 +39,15 @@ export class CategoriesLoadCollectionActionEffect {
   @Effect()
   loadCollection$ = this.actions$.pipe(
     ofType(type),
-    switchMap(action =>
-      combineLatest(
+    switchMap(action => {
+      console.log(`in 1`);
+      return combineLatest(
         of(action)
         //this.store.pipe(select(getUserId))
-      )
-    ),
+      );
+    }),
     map(([action]) => ({ action })),
-      //userId
+    //userId
     switchMap(data =>
       this.db
         .collection('categories')

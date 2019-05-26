@@ -10,6 +10,11 @@ const routes: Routes = [
     path: 'sign-up',
     component: SignupComponent
   },
+
+  {
+    path: 'categories',
+    component: CategoriesComponent
+  },
   {
     path: 'categories',
     component: CategoriesComponent
@@ -19,7 +24,7 @@ const routes: Routes = [
     component: FeedComponent
   },
   {
-    path: 'select-place',
+    path: 'events',
     component: SelectPlaceComponent
   },
   {

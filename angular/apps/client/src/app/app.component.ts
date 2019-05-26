@@ -22,13 +22,13 @@ if (environment.type === EnvironmentType.prod && environment.logRocket) {
 
 @Component({
   selector: 'angular-root',
-  template: `
-    <router-outlet></router-outlet>
-  `,
+  //   template: `
+  // //     <router-outlet></router-outlet>
+  // //   `,
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
-@Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // // })
+  // // @Component({
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
@@ -70,5 +70,9 @@ export class AppComponent implements OnInit {
         // this.store.dispatch(new UserAuthenticatedAction(user));
       });
     this.logger.debug('AppComponent.ngOnInit - Environment:', environment);
+  }
+
+  async signOut() {
+    this.store.dispatch(new UserSignedOutAction());
   }
 }
