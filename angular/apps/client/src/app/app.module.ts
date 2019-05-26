@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { LoggerService } from './+shared/services/logger.service';
 import { SignupStateModule } from './signup/signup-state.module';
+import { FeedModule } from './feed/feed.module';
 import { CategoriesModule } from './categories/categories.module';
 
 @NgModule({
@@ -31,11 +32,12 @@ import { CategoriesModule } from './categories/categories.module';
     AngularFirestoreModule.enablePersistence({
       experimentalTabSynchronization: true
     }),
-    SelectPlaceModule,
     CategoriesModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     SignupModule,
+    FeedModule,
+    SelectPlaceModule,
     SignupStateModule,
     AppRoutingModule
   ],
