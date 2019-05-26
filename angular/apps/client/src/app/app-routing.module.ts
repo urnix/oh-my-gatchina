@@ -6,7 +6,7 @@ import { SignupComponent } from './signup/signup.component';
 const routes: Routes = [
   {
     path: 'select-place',
-    component: SelectPlaceComponent,
+    component: SelectPlaceComponent
   },
   {
     path: 'sign-up',
@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'sign-up'
+    redirectTo: 'select-place'
   }
 ];
 

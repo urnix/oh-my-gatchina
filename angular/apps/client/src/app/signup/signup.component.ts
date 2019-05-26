@@ -2,12 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Store } from '@ngrx/store';
-import { environment } from '../../environments/environment';
 import { UserAuthErrorAction } from '../+core/store/actions/userAuthError.action';
 import { UserSignUpAction } from '../+core/store/actions/userSignUp.action';
-import { UserSignedOutAction } from '../+core/store/actions/userSignedOut.action';
 import { AppState } from '../+core/store/app.state';
-import { UserCustomFields } from '../+core/store/core.state';
 import { AuthState } from '../+core/store/types/authState.enum';
 
 @Component({
@@ -46,38 +43,34 @@ export class SignupComponent implements OnInit {
     } catch (err) {
       return this.store.dispatch(new UserAuthErrorAction(err.message));
     }
-    this.store.dispatch(
-      new UserSignUpAction({
-        displayName: null
-      })
-    );
+    this.store.dispatch(new UserSignUpAction({ displayName: null }));
   }
 
-  async signUp() {
-    if (this.form.invalid) {
-      return;
-    }
-    try {
-      await this.afAuth.auth.createUserWithEmailAndPassword(
-        this.form.controls['email'].value,
-        this.form.controls['password'].value
-      );
-      await this.afAuth.auth.currentUser.sendEmailVerification({
-        url: environment.baseUrl + 'onboarding/sign-in',
-        handleCodeInApp: true
-      });
-    } catch (err) {
-      return this.store.dispatch(new UserAuthErrorAction(err.message));
-    }
-    const userDetails: UserCustomFields = {
-      displayName: this.form.controls['displayName'].value
-    };
-    this.store.dispatch(new UserSignUpAction(userDetails));
-  }
-
-  tryAgain() {
-    this.store.dispatch(new UserSignedOutAction());
-  }
+  // async signUp() {
+  //   if (this.form.invalid) {
+  //     return;
+  //   }
+  //   try {
+  //     await this.afAuth.auth.createUserWithEmailAndPassword(
+  //       this.form.controls['email'].value,
+  //       this.form.controls['password'].value,
+  //     );
+  //     await this.afAuth.auth.currentUser.sendEmailVerification({
+  //       url: environment.baseUrl + 'onboarding/sign-in',
+  //       handleCodeInApp: true,
+  //     });
+  //   } catch (err) {
+  //     return this.store.dispatch(new UserAuthErrorAction(err.message));
+  //   }
+  //   const userDetails: UserCustomFields = {
+  //     displayName: this.form.controls['displayName'].value,
+  //   };
+  //   this.store.dispatch(new UserSignUpAction(userDetails));
+  // }
+  //
+  // tryAgain() {
+  //   this.store.dispatch(new UserSignedOutAction());
+  // }
 }
 
 //

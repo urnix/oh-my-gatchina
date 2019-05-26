@@ -6,7 +6,7 @@ import { StoreModule } from '@ngrx/store';
 // import { UserAuthenticatedActionEffect } from './actions/userAuthenticated.action';
 // import { UserConfigLoadedActionEffect } from './actions/userConfigLoaded.action';
 // import { UserProfileLoadedActionEffect } from './actions/userProfileLoaded.action';
-// import { UserSignedOutActionEffect } from './actions/userSignedOut.action';
+import { UserSignedOutActionEffect } from './actions/userSignedOut.action';
 // import { UserEmailActionsActionEffect } from './actions/userEmailActions.action';
 import { AppMetaReducers, AppReducers, CoreReducer } from './app.reducer';
 // import { UserSetPasswordActionEffect } from './actions/userSetPassword.action';
@@ -26,7 +26,7 @@ import { FEATURE_NAME } from './feature-name';
       // UserConfigLoadedActionEffect,
       // UserProfileLoadedActionEffect,
       // PermissionsSetCollectionActionEffect,
-      // UserSignedOutActionEffect,
+      UserSignedOutActionEffect
       // LocationsSetCollectionActionEffect,
       // LocationsSetActiveItemIdActionEffect,
       // UserEmailActionsActionEffect,

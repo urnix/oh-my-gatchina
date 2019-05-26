@@ -22,7 +22,7 @@ export class UserSignUpAction implements BaseAction<CoreState> {
 
   handler(state: CoreState, action: this): CoreState {
     return setStateProperties(state, {
-      authState: AuthState.waitingForEmailVerification,
+      authState: AuthState.authorized,
       authError: null,
       userCustomFields: action.payload
     });
