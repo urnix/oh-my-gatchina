@@ -6,6 +6,7 @@ import { UserAuthErrorAction } from '../+core/store/actions/userAuthError.action
 import { UserSignUpAction } from '../+core/store/actions/userSignUp.action';
 import { AppState } from '../+core/store/app.state';
 import { AuthState } from '../+core/store/types/authState.enum';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'angular-signup',
@@ -21,7 +22,8 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private afAuth: AngularFireAuth,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private db: AngularFirestore
   ) {}
 
   ngOnInit() {
@@ -40,6 +42,9 @@ export class SignupComponent implements OnInit {
   async signUpAnon() {
     try {
       await this.afAuth.auth.signInAnonymously();
+      const id = await this.db.createId();
+      const user = { id, categories: [] };
+      await this.db.doc(`users/${id}`).set(user);
     } catch (err) {
       return this.store.dispatch(new UserAuthErrorAction(err.message));
     }

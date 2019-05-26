@@ -1,5 +1,7 @@
 <div>
   <ul *ngIf="(categories$ | async) as categories">
-    <li *ngFor="let category of categories">{{ category.name }}</li>
+    <li *ngFor="let category of categories">
+      <a>{{ category.name }}</a>
+    </li>
   </ul>
 </div>
