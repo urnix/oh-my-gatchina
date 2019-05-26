@@ -1,3 +1,16 @@
+<style>
+  .btn.btn-lg.d-block.btn-success {
+    border-radius: 5px;
+    margin-top: 35px !important;
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+  }
+
+  .form-check-label {
+    margin-right: 15px !important;
+  }
+</style>
+
 <div class="container bg-spb">
   <div
     class="row vh-100 d-flex justify-content-center align-items-center bg-spb__inner"
@@ -6,7 +19,10 @@
       <h2 class="text-center mb-3">Выберете категории</h2>
     </div>
 
-    <div class="row w-100 no-gutters" *ngIf="categories$ | async as categories">
+    <div
+      class="row w-100 no-gutters"
+      *ngIf="(categories$ | async) as categories"
+    >
       <div class="row w-100 no-gutters">
         <div class="col-6">
           <div class="form-check" *ngFor="let category of categories">
@@ -17,8 +33,7 @@
                 value=""
                 id="{{ category.name }}"
               />
-              <i class="custom-checkbox"></i>
-              {{ category.name }}
+              <i class="custom-checkbox"></i> {{ category.name }}
             </label>
           </div>
         </div>

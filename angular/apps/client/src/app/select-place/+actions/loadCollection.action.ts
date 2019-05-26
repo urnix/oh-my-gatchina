@@ -15,7 +15,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { SelectPlaceLoadCollectionActionError } from './loadCollectionError.action';
 import { unwrapCollectionSnapshotChanges } from '../../+shared/helpers/firestore.helper';
 import { SelectPlaceLoadCollectionActionSuccessful } from './loadCollectionSuccessful.action';
-import { getUser, getUserId } from '../../+core/store/selectors';
+import { getUser } from '../../+core/store/selectors';
 
 const type = generateActionType(SELECT_PLACE_FEATURE_NAME, 'Load Collection');
 
@@ -43,9 +43,10 @@ export class SelectPlaceLoadCollectionActionEffect {
       combineLatest(of(action), this.store.pipe(select(getUser)))
     ),
     map(([action, user]) => ({ action, user })),
-    filter(data => !!data.user),
-    switchMap(data =>
-      this.db
+    //filter(data => !!data.user),
+    switchMap(data => {
+      console.log('SelectPlaceLoadCollectionActionEffect');
+      return this.db
         .collection('events')
         .snapshotChanges()
         .pipe(
@@ -58,8 +59,8 @@ export class SelectPlaceLoadCollectionActionEffect {
           catchError(error =>
             of(new SelectPlaceLoadCollectionActionError(error))
           )
-        )
-    ),
+        );
+    }),
     catchError(error => of(new SelectPlaceLoadCollectionActionError(error)))
   );
 
