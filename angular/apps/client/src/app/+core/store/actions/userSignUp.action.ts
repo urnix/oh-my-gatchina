@@ -34,7 +34,7 @@ export class UserSignUpActionEffect {
   @Effect({ dispatch: false })
   redirect$ = this.actions$.pipe(
     ofType(type),
-    tap(async () => await this.router.navigate(['/select-place']))
+    tap(async () => await this.router.navigate(['/categories']))
   );
 
   constructor(private actions$: Actions, private router: Router) {}
