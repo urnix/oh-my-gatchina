@@ -29,9 +29,11 @@ export class FeedComponent implements OnInit {
         first()
       )
       .toPromise();
+    // @ts-ignore
     if (event.users.indexOf(userId) >= 0) {
       return;
     }
+    // @ts-ignore
     const users = [...event.users, userId];
     await this.db.doc(`event/${event.id}`).update({ users });
   }
@@ -43,6 +45,10 @@ export class FeedComponent implements OnInit {
         first()
       )
       .toPromise();
-    return event.users.indexOf(userId) >= 0;
+    // @ts-ignore
+    if (event.users.indexOf(userId) >= 0) {
+      return true;
+    }
+    return false;
   }
 }

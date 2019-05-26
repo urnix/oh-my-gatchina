@@ -53,6 +53,9 @@ export class AppComponent implements OnInit {
         const { user, isUserNotAuthenticated } = params;
         if (!user) {
           if (isUserNotAuthenticated) {
+            console.log(
+              `location.pathname: ${JSON.stringify(location.pathname)}`
+            );
             if (location.pathname !== '/sign-up') {
               location.pathname = '/sign-up';
             }

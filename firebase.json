@@ -14,8 +14,13 @@
     "public": "angular/dist/apps/client",
     "ignore": [
       "firebase.json",
-      "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   },
   "database": {
