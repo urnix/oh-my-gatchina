@@ -1,0 +1,28 @@
+.bg-spb{
+	background: url('../img/slide_2.jpg') no-repeat;
+	background-size: cover;
+}
+
+.bg-spb__inner{
+	color: white;
+	background: rgba(0,0,0,0.2);
+}
+
+.bottom-nav{
+	border-top: 1px solid $color-grey;
+	padding: 0;
+
+	.btn-group{
+		width: 100%;
+	}
+
+	.btn{
+		height: 5rem;
+		max-width: 50%;
+
+		.fa{
+			font-size: 3rem;
+			color: $color-blue;
+		}
+	}
+}

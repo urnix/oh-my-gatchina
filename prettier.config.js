@@ -8,4 +8,6 @@ module.exports = {
   bracketSpacing: true,
   arrowParens: 'avoid',
   parser: 'typescript',
+  ignore: 'layout/*',
+  exclude: 'layout/*',
 };

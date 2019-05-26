@@ -1,0 +1,44 @@
+$color-black:           #303338 !default;
+
+$color-link: #1237a1;
+$color-orange: #fdb813;
+$color-orange-hover: #ffcb50;
+$color-black: #171717;
+$color-grey: #ccc;
+$color-grey-light: #f5f5f5;
+$color-grey-dark: #6b6b6b;
+$color-blue: #00adce;
+
+$font-roboto: 'Roboto Slab', serif;
+$font-verdana: Verdana, Geneva, sans-serif;
+
+$border-radius: 3px;
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: ($spacer * .5),
+  2: $spacer,
+  3: ($spacer * 2),
+  4: ($spacer * 2.5),
+  5: ($spacer * 3),
+  6: ($spacer * 4),
+  7: ($spacer * 4.5)
+);
+
+$grid-gutter-width: 30px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xx: 1600px
+);
+
+$slick-font-family: 'FontAwesome';
+$slick-loader-path: '../img/';
+$slick-prev-character: '\f053';
+$slick-next-character:  '\f054';
+$slick-arrow-color: $color-blue;

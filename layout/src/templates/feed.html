@@ -1,0 +1,74 @@
+{% extends '_base.html' %}
+
+
+{% block content %}
+  <div class="container has-navbar">
+    <div class="row">
+
+      {% include "_header.html" %}
+
+    <div class="col-12">
+      <div class="mt-4 card text-center">
+        <div class="card-header">
+          Ближайшее
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Мстители!</h5>
+          <p class="card-text mb-4">Давайте пойдем в кино на Мстителей. Кто хочет?</p>
+          <a href="#" class="btn btn-lg btn-block btn-success">Я хочу с вами!</a>
+        </div>
+        <div class="card-footer text-muted">
+          Через 3 дня
+        </div>
+      </div>
+      </div>
+    </div>
+
+
+
+      <div class="row mt-5">
+        <div class="col-12">
+          <div class="card">
+            <img class="card-img-top" src="img/yoga.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title">Йога семинар</h3>
+              <p class="card-text">Приглашаем вас на йога семинар с руководителем школы Minfd Body который состоится в нашем лучшем парке!</p>
+              <a href="#" class="btn btn-outline-warning mt-3">Присоединиться!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row mt-5">
+        <div class="col-12">
+          <div class="card">
+            <img class="card-img-top" src="img/turnik.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title">Турники</h3>
+              <p class="card-text">Приглашаю всех желающих поупражняться на турниках. Новичкам поможем!</p>
+              <a href="#" class="btn btn-outline-warning mt-3">Присоединиться!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <nav class="bottom-nav navbar fixed-bottom navbar-light bg-light">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-border">
+            <i class="fa fa-list" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+          </button>
+        </div>
+      </nav>
+
+
+
+  </div>
+
+{% endblock %}
