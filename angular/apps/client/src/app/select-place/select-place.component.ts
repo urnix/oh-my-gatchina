@@ -51,8 +51,8 @@ export class SelectPlaceComponent implements OnInit, OnDestroy {
     this.map = new ymaps.Map(
       'map',
       {
-        center: [55.751574, 37.573856],
-        zoom: 9
+        center: [59.561353, 30.11224],
+        zoom: 13
       },
       {
         searchControlProvider: 'yandex#search'
@@ -64,7 +64,7 @@ export class SelectPlaceComponent implements OnInit, OnDestroy {
     });
   }
 
-  addEventsMarks(events){
+  addEventsMarks(events) {
     events.forEach((event: CityEvent) => this.addPlaceMark(event));
   }
 
