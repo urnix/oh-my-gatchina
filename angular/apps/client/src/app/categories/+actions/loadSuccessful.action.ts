@@ -4,25 +4,26 @@ import {
 } from '../../+shared/helpers/state.helper';
 import { SELECT_PLACE_FEATURE_NAME } from '../../select-place/select-place-feature-name';
 import { setStateProperties } from '@shared/helpers/state/state.helper';
-import { CATEGORIES_FEATURE_NAME } from '../categories-feature-name';
 import { CategoriesState } from '../categories.state';
+import { CATEGORIES_FEATURE_NAME } from '../categories-feature-name';
+import { Category } from '@shared/models/category.interface';
 
 const type = generateActionType(
-  CATEGORIES_FEATURE_NAME,
-  'Load Collection Error'
+  SELECT_PLACE_FEATURE_NAME,
+  'Load Collection Successful'
 );
 
-export class CategoriesLoadCollectionActionError
+export class CategoriesLoadCollectionActionSuccessful
   implements BaseAction<CategoriesState> {
-  feature = SELECT_PLACE_FEATURE_NAME;
+  feature = CATEGORIES_FEATURE_NAME;
   type = type;
 
-  constructor(public payload: Error) {}
+  constructor(public payload: Category[]) {}
 
   handler(state: CategoriesState, action: this): CategoriesState {
     return setStateProperties(state, {
       isLoading: false,
-      loadError: action.payload
+      categories: action.payload
     });
   }
 }
