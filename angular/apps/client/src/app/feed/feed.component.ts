@@ -43,9 +43,6 @@ export class FeedComponent implements OnInit {
         first()
       )
       .toPromise();
-    if (event.users.indexOf(userId) >= 0) {
-      return true;
-    }
-    return false;
+    return event.users.indexOf(userId) >= 0;
   }
 }
