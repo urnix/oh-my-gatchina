@@ -3,5 +3,5 @@ export interface SignupState {
 }
 
 export const SignupStateInitial = {
-  fake: 'fake',
+  fake: 'fake'
 };

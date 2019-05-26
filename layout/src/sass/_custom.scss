@@ -1,0 +1,95 @@
+
+.navbar-brand{
+	font-family: 'Courgette', cursive;
+	color: $color-blue !important;
+}
+
+.top-navbar{
+	border-top: 2px solid $color-orange;
+	background: white;
+
+	.navbar-toggler{
+		background: $color-orange;
+	}
+}
+
+.btn{
+  border-radius: 0;
+}
+
+.btn-link a{
+  color: white;
+}
+
+.btn-vk{
+  color: white;
+	background: #4A76A8;
+}
+
+.form-check{
+	@extend .mb-2;
+
+	.form-check-input{
+		display: none;
+	}
+
+	.form-check-label{
+		white-space: nowrap;
+	}
+
+	.custom-checkbox{
+		position: relative;
+		top: 2px;
+		display: inline-block;
+		height: 16px;
+		width: 16px;
+		margin-right: 2px;
+		border: 2px solid white;
+		border-radius: 3px;
+
+		&:before{
+			content: none;
+			display: inline-block;
+		}
+	}
+
+	.form-check-input:checked + .custom-checkbox{
+		border-color: $green;
+
+		&:before{
+			@extend .fa;
+			@extend .fa-check;
+			font-size: 1.3rem;
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: $green;
+		}
+	}
+}
+
+.card-body,
+.bottom-nav{
+	background: $color-grey-light;
+}
+.btn-outline-warning{
+	color: $color-orange;
+	border-color: $color-orange;
+}
+
+.btn-border{
+	border-right: 1px solid $color-grey;
+}
+
+.btn-success{
+	color: $color-black;
+	background-color: $color-orange;
+	border-top: 1px solid transparent;
+	border-bottom: 2px solid $color-orange-hover;
+	border-left: none;
+	border-right: none;
+}
+
+.has-navbar{
+	padding-bottom: 7rem;
+}

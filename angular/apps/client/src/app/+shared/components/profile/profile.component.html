@@ -1,7 +1,7 @@
 <button
   type="button"
   mat-button
-  *ngIf="(user$ | async) as user"
+  *ngIf="user$ | async as user"
   class="wrapper"
   (click)="signOut()"
 >

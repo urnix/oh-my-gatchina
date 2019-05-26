@@ -1,3 +1,26 @@
-<p>signup works!</p>
+<!--<p>signup works!</p>-->
 
-<button (click)="signUpAnon()">Sign up anonymously</button>
+<!--<button (click)="signUpAnon()">Sign up anonymously</button>-->
+
+<div class="container bg-spb">
+  <div class="row vh-100 d-flex align-items-center bg-spb__inner">
+    <div class="col-12">
+      <h2 class="text-center mb-3">Регистрация</h2>
+      <!-- 		</div>
+          <div class="col-12"> -->
+      <a
+        href="javascript:"
+        class="btn btn-vk btn-lg d-block mb-2"
+        (click)="signUpAnon()"
+      >
+        <i class="fa mr-1"></i> Мгновенная регистрация
+      </a>
+      <a href="javascript:" class="btn btn-danger btn-lg d-block mb-2 disabled">
+        <i class="fa fa-google mr-1"></i> Sign in with Google
+      </a>
+      <!--      <a href="javascript:" class="btn btn-vk btn-lg d-block mb-2">-->
+      <!--        <i class="fa fa-vk mr-1"></i> Sign in with Vkontakte-->
+      <!--      </a>-->
+    </div>
+  </div>
+</div>
