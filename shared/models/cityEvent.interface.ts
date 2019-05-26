@@ -5,4 +5,5 @@ export interface CityEvent {
   coords: number[];
   categoryId?: string;
   userId?: string;
+  users: [];
 }

@@ -8,6 +8,8 @@ import { SelectPlaceLoadCollectionAction } from './+actions/loadCollection.actio
 import { getEvents } from './select-place.selectors';
 import { Subscription } from 'rxjs';
 import { CityEvent } from '@shared/models/cityEvent.interface';
+import { getUserId } from '../+core/store/selectors';
+import { first } from 'rxjs/operators';
 
 declare let ymaps: any;
 
@@ -88,23 +90,20 @@ export class SelectPlaceComponent implements OnInit, OnDestroy {
     if (!eventData || !eventData.result) {
       return;
     }
+    const userId = await this.store
+      .pipe(
+        select(getUserId),
+        first()
+      )
+      .toPromise();
+
     const event = {
       name: eventData.name,
       description: eventData.description,
-      coords
+      coords,
+      users: [userId]
     };
     const id = this.db.createId();
     await this.db.doc(`events/${id}`).set(event);
-    // if (!this.map.balloon.isOpen()) {
-    //   this.map.balloon.open(coords, {
-    //     contentHeader: 'Событие!',
-    //     // contentBody: 'contentBody.html',
-    //     contentFooter: '<sup>Щелкните еще раз для отмены</sup>',
-    //     balloonLayout: createBaloonLayout(ymaps),
-    //   });
-    // } else {
-    //   this.map.balloon.close();
-    // }
-    // this.addPlaceMark(coords);
   }
 }
