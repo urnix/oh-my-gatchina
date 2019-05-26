@@ -6,6 +6,7 @@ import { DynamicScriptLoaderService } from '../services/script-loader';
 import { CreateEventService } from './create-event-dialog/src/create-event.service';
 import { MatDialogModule } from '@angular/material';
 import { CreateEventModule } from './create-event-dialog';
+import { SelectPlaceStoreModule } from './select-place.state.module';
 
 @NgModule({
   declarations: [SelectPlaceComponent],
@@ -13,7 +14,8 @@ import { CreateEventModule } from './create-event-dialog';
     CommonModule,
     SelectPlaceRoutingModule,
     MatDialogModule,
-    CreateEventModule
+    CreateEventModule,
+    SelectPlaceStoreModule,
   ],
   providers: [DynamicScriptLoaderService, CreateEventService]
 })

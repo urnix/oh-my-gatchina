@@ -9,6 +9,7 @@ import {
 
 import { CreateEventComponent } from './create-event.component';
 import { CreateEventService } from './create-event.service';
+import { DatePickerModule } from '../../../../../../../shared/modules/datepicker.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { CreateEventService } from './create-event.service';
     MatButtonModule,
     MatDialogModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    DatePickerModule,
   ],
   declarations: [CreateEventComponent],
   entryComponents: [CreateEventComponent]

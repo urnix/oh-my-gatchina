@@ -1,5 +1,6 @@
 import { AuthState } from './types/authState.enum';
 import { User } from '../../../../../../../shared/models/user.interface';
+import { SelectPlaceState, SelectPlaceStateInitial } from '../../select-place/select-place.state';
 
 export interface ListState<T> {
   ids: string[];
@@ -28,6 +29,7 @@ export interface CoreState {
   resendEmailDate?: Date;
   userCustomFields?: UserCustomFields;
   user: User;
+  selectPlace: SelectPlaceState;
   // userConfig: UserConfig;
   // permissions: ListState<Permission>;
   // organizations: ListState<Organization>;
@@ -38,7 +40,8 @@ export const CoreStateInitial: CoreState = {
   authState: AuthState.notAuthenticated,
   authError: null,
   user: null,
-  userCustomFields: null
+  userCustomFields: null,
+  selectPlace: SelectPlaceStateInitial,
   // userConfig: null,
   // permissions: ListStateInitial,
   // organizations: ListStateInitial,

@@ -1,0 +1,1 @@
+export const SELECT_PLACE_FEATURE_NAME = 'SELECT PLACE';

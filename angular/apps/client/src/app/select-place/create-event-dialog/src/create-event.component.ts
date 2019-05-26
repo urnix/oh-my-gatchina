@@ -22,6 +22,8 @@ export class CreateEventComponent {
   description: string;
   name: string;
 
+  minDate = new Date();
+
   ok() {
     this.dialogRef.close({
       result: true,

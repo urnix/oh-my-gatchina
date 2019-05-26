@@ -11,6 +11,10 @@ export const getUser = createSelector(
   getCoreState,
   state => state.user
 );
+export const getUserId = createSelector(
+  getCoreState,
+  state => state.user.id,
+);
 export const getAuthState = createSelector(
   getCoreState,
   state => state.authState
