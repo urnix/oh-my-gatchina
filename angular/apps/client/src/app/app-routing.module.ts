@@ -2,19 +2,24 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SelectPlaceComponent } from './select-place/select-place.component';
 import { SignupComponent } from './signup/signup.component';
+import { FeedComponent } from './feed/feed.component';
 
 const routes: Routes = [
-  {
-    path: 'select-place',
-    component: SelectPlaceComponent
-  },
   {
     path: 'sign-up',
     component: SignupComponent
   },
   {
+    path: 'feed',
+    component: FeedComponent
+  },
+  {
+    path: 'select-place',
+    component: SelectPlaceComponent
+  },
+  {
     path: '**',
-    redirectTo: 'select-place'
+    redirectTo: 'feed'
   }
 ];
 
