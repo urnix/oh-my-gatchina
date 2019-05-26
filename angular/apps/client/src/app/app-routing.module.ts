@@ -19,7 +19,7 @@ const routes: Routes = [
     component: FeedComponent
   },
   {
-    path: 'select-place',
+    path: 'events',
     component: SelectPlaceComponent
   },
   {
