@@ -11,7 +11,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 @Component({
   selector: 'angular-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.sass']
+  styleUrls: ['./signup.component.sass'],
 })
 export class SignupComponent implements OnInit {
   AuthState = AuthState;
@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private afAuth: AngularFireAuth,
     private store: Store<AppState>,
-    private db: AngularFirestore
+    private db: AngularFirestore,
   ) {}
 
   ngOnInit() {
@@ -33,9 +33,9 @@ export class SignupComponent implements OnInit {
       email: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [
         Validators.minLength(8),
-        Validators.required
+        Validators.required,
       ]),
-      confirmPassword: new FormControl(null, [Validators.required])
+      confirmPassword: new FormControl(null, [Validators.required]),
     });
   }
 
@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
     try {
       await this.afAuth.auth.signInAnonymously();
       const id = await this.db.createId();
-      const user = { id, categories: [] };
+      const user = { name: `Аноним ${Math.floor(Math.random() * 1001)}`, categories: [] };
       await this.db.doc(`users/${id}`).set(user);
     } catch (err) {
       return this.store.dispatch(new UserAuthErrorAction(err.message));

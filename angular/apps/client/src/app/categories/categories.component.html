@@ -1,7 +1,32 @@
-<div>
-  <ul *ngIf="(categories$ | async) as categories">
-    <li *ngFor="let category of categories">
-      <a>{{ category.name }}</a>
-    </li>
-  </ul>
+<div class="container bg-spb">
+  <div
+    class="row vh-100 d-flex justify-content-center align-items-center bg-spb__inner"
+  >
+    <div class="col-12">
+      <h2 class="text-center mb-3">Выберете категории</h2>
+    </div>
+
+    <div class="row w-100 no-gutters" *ngIf="categories$ | async as categories">
+      <div class="row w-100 no-gutters">
+        <div class="col-6">
+          <div class="form-check" *ngFor="let category of categories">
+            <label class="form-check-label" for="{{ category.name }}">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="{{ category.name }}"
+              />
+              <i class="custom-checkbox"></i>
+              {{ category.name }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <a href="/events" class="btn btn-lg d-block btn-success">Готово!</a>
+      </div>
+    </div>
+  </div>
 </div>

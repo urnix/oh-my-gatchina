@@ -37,6 +37,7 @@ export class CategoriesSelectActionEffect {
     ),
     map(([action, user]) => ({ action, user })),
     switchMap(async data => {
+      // @ts-ignore
       const categories = [...data.user.categories, data.action.payload];
       await this.db.doc(`users/${data.user.id}`).update({ categories });
     })
