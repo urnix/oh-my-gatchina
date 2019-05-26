@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { LoggerService } from './+shared/services/logger.service';
 import { SignupStateModule } from './signup/signup-state.module';
+import { CategoriesModule } from './categories/categories.module';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { SignupStateModule } from './signup/signup-state.module';
       experimentalTabSynchronization: true
     }),
     SelectPlaceModule,
+    CategoriesModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     SignupModule,

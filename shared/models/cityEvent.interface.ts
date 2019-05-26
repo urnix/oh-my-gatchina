@@ -1,4 +1,5 @@
 export interface CityEvent {
+  id?: string;
   name: string;
   description: string;
   coords: number[];
