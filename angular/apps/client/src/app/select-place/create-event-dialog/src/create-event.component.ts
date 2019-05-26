@@ -1,8 +1,9 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  Inject, OnInit,
-  ViewEncapsulation,
+  Inject,
+  OnInit,
+  ViewEncapsulation
 } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { getCategories } from '../../../categories/categories.selectors';
@@ -37,12 +38,11 @@ export class CreateEventComponent implements OnInit {
   }
 
   ok() {
-    console.log(this.categoryId)
     this.dialogRef.close({
       result: true,
       description: this.description,
       name: this.name,
-      categoryId: this.categoryId,
+      categoryId: this.categoryId
     });
   }
 
@@ -54,7 +54,7 @@ export class CreateEventComponent implements OnInit {
     this.name = text;
   }
 
-  onCategoryChanged(categoryId){
+  onCategoryChanged(categoryId) {
     console.log(categoryId);
     this.categoryId = categoryId;
   }

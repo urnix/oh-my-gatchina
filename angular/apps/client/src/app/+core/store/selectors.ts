@@ -13,7 +13,7 @@ export const getUser = createSelector(
 );
 export const getUserId = createSelector(
   getCoreState,
-  state => state.user.id,
+  state => state.user && state.user.id
 );
 export const getAuthState = createSelector(
   getCoreState,

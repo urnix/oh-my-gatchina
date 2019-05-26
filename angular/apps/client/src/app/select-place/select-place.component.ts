@@ -87,7 +87,12 @@ export class SelectPlaceComponent implements OnInit, OnDestroy {
   async mapClick(coords) {
     this.map.balloon.close();
     const eventData: any = await this.createEventService.show();
-    if (!eventData || !eventData.result) {
+    if (
+      !eventData ||
+      !eventData.result ||
+      !eventData.categoryId ||
+      !eventData.name
+    ) {
       return;
     }
     const userId = await this.store
@@ -100,6 +105,7 @@ export class SelectPlaceComponent implements OnInit, OnDestroy {
     const event = {
       name: eventData.name,
       description: eventData.description,
+      categoryId: eventData.categoryId,
       coords,
       users: [userId]
     };
