@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { CATEGORIES_FEATURE_NAME } from './categories-feature-name';
 import { CategoriesState, CategoriesStateInitial } from './categories.state';
+import { CategoriesLoadCollectionActionEffect } from './+actions/loadCollection.action';
 
 const initialState =
   rehydrateFeatureState<CategoriesState>(CATEGORIES_FEATURE_NAME) ||
@@ -22,7 +23,7 @@ export function CategoriesReducer(
 @NgModule({
   imports: [
     StoreModule.forFeature(CATEGORIES_FEATURE_NAME, CategoriesReducer),
-    EffectsModule.forFeature([])
+    EffectsModule.forFeature([CategoriesLoadCollectionActionEffect])
   ]
 })
 export class CategoriesStoreModule {}
