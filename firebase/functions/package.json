@@ -16,7 +16,7 @@
   "dependencies": {
     "@sentry/node": "4.5.3",
     "@sentry/types": "4.5.3",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "firebase-admin": "~6.5.0",
     "firebase-functions": "^2.1.0",
     "shortid": "^2.2.14",
